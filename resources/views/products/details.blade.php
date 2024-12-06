@@ -26,8 +26,18 @@
             </div>
 
             <div class="p-6 bg-gray-50 flex justify-between items-center">
-                <button class="bg-blue-500 text-white py-2 px-6 rounded-lg text-lg hover:bg-blue-700 transition-all duration-300">Edit</button>
-                <button class="bg-red-500 text-white py-2 px-6 rounded-lg text-lg hover:bg-green-700 transition-all duration-300">Delete</button>
+                <a href="{{ route('products.edit', $product->id) }}">
+                    <button class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Edit
+                    </button>
+                </a>                
+                <form action="{{ route('products.delete', $product->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                        Delete
+                    </button>
+                </form>            
             </div>
         </div>
     </div>

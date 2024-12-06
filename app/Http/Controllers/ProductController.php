@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function showProducts(Request $request)
 {
     $search = $request->input('search');
-    $perPage = 2;
+    $perPage = 5;
 
     if ($search) {
         $products = DB::table('products')
@@ -32,8 +32,8 @@ class ProductController extends Controller
 
     public function createProduct(Request $request) {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
+            'name' => 'required|string|max:255',    
+            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/|min:0',
             'quantity' => 'required|integer|min:0',
         ]);
     

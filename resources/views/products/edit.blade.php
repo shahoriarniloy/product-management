@@ -16,8 +16,12 @@
 
         <div class="space-y-2">
             <label for="price" class="text-lg font-medium text-gray-700">Price ($)</label>
-            <input type="number" name="price" id="price" value="{{ old('price', $product->price) }}" required class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter product price">
+            <input type="text" name="price" id="price" value="{{ old('price', $product->price) }}" required 
+                   class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                   placeholder="Enter product price" 
+                   pattern="^\d+(\.\d{1,2})?$" title="Enter a valid price with up to 2 decimal places">
         </div>
+        
 
         <div class="space-y-2">
             <label for="quantity" class="text-lg font-medium text-gray-700">Quantity Available</label>
