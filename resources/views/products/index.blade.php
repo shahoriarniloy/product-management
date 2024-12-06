@@ -39,12 +39,18 @@
             </td>
             <td class="py-3 px-4">
                 <div class="flex gap-2 justify-center">
-                    <button class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                        Edit
-                    </button>
-                    <button class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
-                        Delete
-                    </button>
+                    <a href="{{ route('products.edit', $product->id) }}">
+                        <button class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Edit
+                        </button>
+                    </a>
+                    <form action="{{ route('products.delete', $product->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                            Delete
+                        </button>
+                    </form>
                 </div>
             </td>
         </tr>

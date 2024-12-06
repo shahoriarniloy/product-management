@@ -36,6 +36,46 @@ class ProductController extends Controller
     
         return redirect()->route('view.products.index');
     }
+
+
+    public function delete($id)
+    {
+        DB::table('products')->where('id', $id)->delete();
+
+        return redirect()->route('view.products.index');
+    }
+
+    public function edit($id)
+    {
+        $product = DB::table('products')->where('id', $id)->first();
+        
+        return view('products.edit', ['product' => $product]);
+    }
+
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'quantity' => 'required|integer|min:0',
+        'description' => 'required|string',
+    ]);
+
+    DB::table('products')
+        ->where('id', $id)
+        ->update([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'quantity' => $request->input('quantity'),
+            'description' => $request->input('description'),
+            'updated_at' => now(), 
+        ]);
+
+    return redirect()->route('view.products.index');
+}
+
+
+
     
 
 }
