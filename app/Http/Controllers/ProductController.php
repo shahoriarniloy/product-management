@@ -10,16 +10,20 @@ class ProductController extends Controller
     public function showProducts(Request $request)
 {
     $search = $request->input('search');
+    $perPage = 2;
 
     if ($search) {
         $products = DB::table('products')
             ->where('name', 'like', "%{$search}%")
-            ->get();
+            ->orWhere('description', 'like', "%{$search}%")
+            ->paginate($perPage);
     } else {
-        $products = DB::table('products')->get();
+        $products = DB::table('products')->paginate($perPage);
     }
+
     return view('products.index', ['data' => $products]);
 }
+
 
     public function productDetails(string $id){
         $product=DB::table("products")->where('id',$id)->first();

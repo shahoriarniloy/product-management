@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Product Page</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-gray-100 font-sans">
+@extends('layouts.layout') 
+
+
+@section('content')
+<div class="bg-gray-100 font-sans">
 
     <div class="max-w-6xl py-16 mx-auto">
         <div class="bg-white rounded-lg shadow-xl overflow-hidden transition-transform transform hover:shadow-xl">
@@ -37,5 +32,6 @@
         </div>
     </div>
 
-</body>
-</html>
+</div>
+
+@endsection
