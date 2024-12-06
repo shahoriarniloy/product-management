@@ -10,7 +10,7 @@
     <title>Products</title>
 </head>
 <body>
-    <div class=" mx-16 min-h-screen my-16">
+    <div class=" lg:mx-16 md:mx-16 mx-4 min-h-screen my-16">
         <h1 class="text-3xl font-semibold text-blue-500 text-center mb-8" >Products</h1>
 
         <table class="w-full p-4 mx-auto rounded-lg shadow-lg border-collapse bg-white text-center">
@@ -30,9 +30,12 @@
             <td class="py-3 px-4 text-sm text-gray-600">{{$product->description}}</td>
             <td class="py-3 px-4 text-sm font-semibold text-gray-800">${{$product->price}}</td>
             <td class="py-3 px-4">
-                <button class="px-4 py-2 text-sm font-medium text-blue-500 border border-blue-500 rounded-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                    Details
-                </button>
+                <a href="{{route('view.product', $product->id)}}">
+                    <button class="px-4 py-2 text-sm font-medium text-blue-500 border border-blue-500 rounded-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Details
+                    </button>
+                </a>
+               
             </td>
             <td class="py-3 px-4">
                 <div class="flex gap-2 justify-center">

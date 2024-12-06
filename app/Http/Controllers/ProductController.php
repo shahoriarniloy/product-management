@@ -12,4 +12,9 @@ class ProductController extends Controller
         return view('allProducts',  ['data'=>$products]);
 
     }
+
+    public function productDetails(string $id){
+        $product=DB::table("products")->where('id',$id)->first();
+        return view('singleProduct', ['product' => $product]);        
+    }
 }
