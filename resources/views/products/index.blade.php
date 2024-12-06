@@ -9,9 +9,22 @@
 
     <title>Products</title>
 </head>
-<body>
-    <div class=" lg:mx-16 md:mx-16 mx-4 min-h-screen my-16">
+<body class="mx-auto max-w-6xl">
+    
+    <div class="  min-h-screen my-16">
         <h1 class="text-3xl font-semibold text-blue-500 text-center mb-8" >Products</h1>
+        <div class="flex justify-between">
+            <a href="{{route('view.products.create')}}" class="bg-green-500 rounded-md text-white px-4 py-2 mb-4">
+                <button >Add Product</button>
+
+            </a>
+            <form method="GET" action="{{ route('view.products.index') }}" class="mb-4">
+                <input type="text" name="search" placeholder="Search Product" class="px-4 py-2 border border-gray-300 rounded-md" value="{{ request()->input('search') }}">
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Search</button>
+            </form>
+
+        </div>
+        
 
         <table class="w-full p-4 mx-auto rounded-lg shadow-lg border-collapse bg-white text-center">
     <thead>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ProductController::class,'showProducts'])->name('view.products.index');
+Route::get('/', [ProductController::class, 'showProducts'])->name('view.products.index');
 Route::get('/product/{id}', [ProductController::class,'productDetails'])->name('view.products.details');
 Route::get('/createProduct', function () {
     return view('products.create');

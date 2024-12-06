@@ -7,11 +7,19 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function showProducts(){
-        $products = DB::table("products")->get();
-        return view('products.index',  ['data'=>$products]);
+    public function showProducts(Request $request)
+{
+    $search = $request->input('search');
 
+    if ($search) {
+        $products = DB::table('products')
+            ->where('name', 'like', "%{$search}%")
+            ->get();
+    } else {
+        $products = DB::table('products')->get();
     }
+    return view('products.index', ['data' => $products]);
+}
 
     public function productDetails(string $id){
         $product=DB::table("products")->where('id',$id)->first();
