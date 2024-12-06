@@ -30,7 +30,7 @@
             <td class="py-3 px-4 text-sm text-gray-600">{{$product->description}}</td>
             <td class="py-3 px-4 text-sm font-semibold text-gray-800">${{$product->price}}</td>
             <td class="py-3 px-4">
-                <a href="{{route('view.product', $product->id)}}">
+                <a href="{{route('view.products.details', $product->id)}}">
                     <button class="px-4 py-2 text-sm font-medium text-blue-500 border border-blue-500 rounded-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                         Details
                     </button>
